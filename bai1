@@ -1,0 +1,34 @@
+org 100h
+
+mov al,03h
+mov ah,0
+int 10h
+
+mov dl,20
+mov dh,12
+mov bh,0
+mov ah,2
+int 10h
+
+mov al,031h
+mov bl,01001111b
+mov cx,1
+mov ah,09h
+int 10h 
+
+lap:
+inc dl
+inc al
+cmp dl,26
+jnz nhap
+je endss
+
+nhap:
+mov ah,2
+int 10h
+mov ah,09h
+int 10h
+jmp lap
+endss:
+mov ah,4ch
+int 21h
